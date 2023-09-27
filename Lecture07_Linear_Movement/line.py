@@ -1,6 +1,7 @@
+import math
 import turtle
 import random
-
+import math
 
 def stop():
     turtle.bye()
@@ -56,8 +57,9 @@ def draw_line(p1, p2):
     x1, y1 = p1[0], p1[1]   # (-100,-100)
     x2, y2 = p2[0], p2[1]   # (300,150)
 
-    for i in range(0,100+1,3):
+    for i in range(0,100,3):
         t = i/100
+
         x = (1-t)*x1 + t*x2 # 1-t : t의 비율로 x1,x2를 섞음
         y = (1-t)*y1 + t*y2 # 1-t : t의 비율로 y1,y2를 섞음
 
@@ -65,8 +67,14 @@ def draw_line(p1, p2):
 
 
 prepare_turtle_canvas()
+#
+# draw_line((-100,-100),(300,150))
+# draw_line((-100,-100),(-100,300))
 
-draw_line((-100,-100),(300,150)) 
-draw_line((-100,-100),(-100,300))
+points = [(-300,200),(400,350),(300,-300),(-200,-200)]
+
+for i in range(0,len(points)-1):
+    draw_line(points[i],points[i+1])
+draw_line(points[-1],points[0])
 
 turtle.done()
