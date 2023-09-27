@@ -56,8 +56,8 @@ def draw_line(p1, p2):
     x1, y1 = p1[0], p1[1]   # (-100,-100)
     x2, y2 = p2[0], p2[1]   # (300,150)
     
-    a = (y2-y1)/(x2-x1)
-    b = y1 - x1 * a
+    a = (y2-y1)/(x2-x1)     # 기울기
+    b = y1 - x1 * a         # y절편
     for x in range(x1, x2 + 1, 10):
         y = a * x + b
         draw_point((x, y))
