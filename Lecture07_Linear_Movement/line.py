@@ -1,7 +1,6 @@
 import math
 import turtle
 import random
-import math
 
 def stop():
     turtle.bye()
@@ -65,13 +64,17 @@ def draw_line(p1, p2):
 
         draw_point((x,y))
 
-
 prepare_turtle_canvas()
-#
-# draw_line((-100,-100),(300,150))
-# draw_line((-100,-100),(-100,300))
+ #
+    # draw_line((-100,-100),(300,150))
+    # draw_line((-100,-100),(-100,300))
 
-points = [(-300,200),(400,350),(300,-300),(-200,-200)]
+   # points = [(-300,200),(400,350),(300,-300),(-200,-200)]
+
+points = [(random.randint(-300,300), random.randint(-300,300)) for i in range(0,10)]
+
+for p in points:
+    draw_big_point(p)
 
 for i in range(0,len(points)-1):
     draw_line(points[i],points[i+1])
