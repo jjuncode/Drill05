@@ -12,7 +12,6 @@ character = load_image('sprite.png')
 
 mouse_x, mouse_y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 character_x,character_y = mouse_x,mouse_y
-distn = 0
 quit = False
 hide_cursor()
 
@@ -38,13 +37,18 @@ def SetFrame():
         Ani.cur_frame =0
 def MoveCharacter():
     global character_x, character_y,mouse_x,mouse_y,move_speed
+    if character_x < mouse_x :
+        Ani.cur_ani = 0
+    else :
+        Ani.cur_ani = 2
     for i in range(0,100+1):
+        SetFrame()  # animation
         t = i/100
         character_x = (1-t)*character_x + t*mouse_x
         character_y = (1-t)*character_y + t*mouse_y
-        DrawAnimation()
-        handle_event()
-        delay(0.001)
+        DrawAnimation() # draw character
+        handle_event()  # get event
+        delay(0.01)
 
 
 def MoveCursor():
@@ -66,7 +70,6 @@ def handle_event():
 
 def main():
     while (not quit):
-        SetFrame()
         handle_event()
         MoveCursor()
         MoveCharacter()
