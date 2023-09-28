@@ -35,7 +35,11 @@ def SetFrame():
     if (Ani.cur_frame > Ani.max_frame[Ani.cur_ani]):    # Frame reset
         Ani.cur_frame =0
 def MoveCharacter():
-    pass
+    global character_x, character_y,mouse_x,mouse_y
+    for t in range(0,100):
+        character_x = (1-t)*character_x + t*mouse_x
+        character_y = (1-t)*character_y + t*mouse_y
+
 
 def handle_event():
     global quit,mouse_x,mouse_y
