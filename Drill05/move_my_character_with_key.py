@@ -76,6 +76,7 @@ def main():
 
     close_canvas()
 
+
 main()
 
 
